@@ -12,6 +12,11 @@ namespace Layered.Basic{
         private static List<IDrawObject>[]  drawLayers = new List<IDrawObject>[Settings.drawLayerDepth];
         private static List<IUIObject>[]    uiLayers = new List<IUIObject>[Settings.uiLayerDepth];
 
+        static LayeredLayout()
+        {
+            Init();
+        }
+
         public static void Init()
         {
             for (int i = 0; i < drawLayers.Length; i++)

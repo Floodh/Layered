@@ -6,7 +6,7 @@
     <RootNamespace>Layered</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <DefineConstants>Test</DefineConstants>
+    <DefineConstants>Demo</DefineConstants>
 
   </PropertyGroup>
   <ItemGroup>
