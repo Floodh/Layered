@@ -1,0 +1,15 @@
+*.jpg
+*.jpeg
+*.opus
+*.wav
+*.webp
+*.m4a
+*.py
+*.txt
+obj
+bin
+.vscode
+*.part
+!readme.txt
+!YoutubeSpotify/Resources/*
+!Layered/Settings/*

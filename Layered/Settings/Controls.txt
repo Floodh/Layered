@@ -1,0 +1,16 @@
+__up__ = UP
+__down__ = DOWN
+__right__ = RIGHT
+__left__ = LEFT
+
+__up_2__ = W
+__down_2__ = S
+__right_2__ = D
+__left_2__ = A
+
+__open_menu__ = ESCAPE
+__open_map__ = TAB
+
+__playAsNext__ = SHIFT
+
+MouseButtons = 8
