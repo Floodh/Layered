@@ -1,6 +1,3 @@
-#if Demo
-
-
 
 using   Layered.Basic;
 using   Layered.Internal;
@@ -10,7 +7,7 @@ using   System;
 using   System.Drawing;
 
 
-namespace DieKurve{
+namespace Demo{
 
     class MainClass
     {
@@ -58,6 +55,3 @@ namespace DieKurve{
     }
 
 }
-
-
-#endif

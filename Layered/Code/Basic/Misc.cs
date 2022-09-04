@@ -14,6 +14,11 @@ namespace Layered.Basic   {
             return Math.Sqrt( ((p1.X - p2.X) * (p1.Y - p2.Y)) + ((p1.X - p2.Y) * (p1.Y - p2.Y)) );
         }
 
+        public static double Atan2(double x, double y)
+        {
+            return Math.Atan2(y, x);
+        }
+
 
 
     }

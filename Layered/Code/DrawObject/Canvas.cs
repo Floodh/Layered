@@ -17,6 +17,8 @@ namespace Layered.DrawObject
         private         IntPtr              internalTexture; 
         private         List<IDrawObject>[] drawLayers;
 
+        public          bool                clearCanvas = false;
+
         public Canvas(int z, Rectangle drawArea, int layers)
         {
             this.Z = z;
@@ -54,7 +56,8 @@ namespace Layered.DrawObject
         public override void Draw()
         {
             Visual.SetRenderTarget(this.internalTexture);
-            Visual.ClearScreen();
+            if (clearCanvas)
+                Visual.ClearScreen();
             foreach (List<IDrawObject> layer in this.drawLayers)
             {
                 foreach (IDrawObject obj in layer)
