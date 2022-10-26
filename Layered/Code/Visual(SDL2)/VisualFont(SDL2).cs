@@ -37,6 +37,8 @@ namespace Layered.Internal{
             }
             SDL.SDL_Color fontColor = new SDL.SDL_Color(){a = color.A, r = color.B, g = color.G, b = color.B};
             //IntPtr surface = SDL_ttf.TTF_RenderText_Solid(font, text, fontColor);
+            if (text == "")
+                text = " ";
             IntPtr surface = SDL_ttf.TTF_RenderUNICODE_Solid(font, text, fontColor);
             //IntPtr surface = SDL_ttf.TTF_RenderUNICODE_Blended_Wrapped(font, text, fontColor, 300);
             if (surface == IntPtr.Zero)

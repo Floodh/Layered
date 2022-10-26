@@ -23,7 +23,7 @@ namespace Layered.DrawObject
         public bool displayOptions {
             get {return this.onOff;} 
             set {this.onOff = value;}}
-        public OptionBasic[] options;
+        public OptionBase[] options;
 
         public const string defualtFont = "OpenSans-Bold.ttf";
         public string fontName = defualtFont;
@@ -54,11 +54,11 @@ namespace Layered.DrawObject
         
 
         //  Implement when there is a suitable defualt texture
-        public OptionHolder(int z, Rectangle drawArea, Color drawColor, Size iconSize, OptionBasic[] options)
+        public OptionHolder(int z, Rectangle drawArea, Color drawColor, Size iconSize, OptionBase[] options)
             :   this(z, drawArea, drawColor, iconSize, options, defualtOptionTextureArea, defualtOptionTexture)
         {}
 
-        public OptionHolder(int z, Rectangle drawArea, Color drawColor, Size iconSize, OptionBasic[] options, Rectangle textureArea, string textureName, string textureFolderPath = Settings.defaultTextureFolderPath)
+        public OptionHolder(int z, Rectangle drawArea, Color drawColor, Size iconSize, OptionBase[] options, Rectangle textureArea, string textureName, string textureFolderPath = Settings.defaultTextureFolderPath)
             : this(z, drawArea, drawColor, iconSize, options, 
                 new SimpleTexture(-1, new Rectangle(Point.Empty, iconSize), textureArea, textureName, textureFolderPath))
         {}
@@ -67,17 +67,16 @@ namespace Layered.DrawObject
             :this(z, drawArea, drawColor, iconSize, new OptionBasic[0],textureSymbol)
         {}
 
-        public OptionHolder(int z, Rectangle drawArea, Color drawColor, Size iconSize, OptionBasic[] options, SimpleTexture textureSymbol)
+        public OptionHolder(int z, Rectangle drawArea, Color drawColor, Size iconSize, OptionBase[] options, SimpleTexture textureSymbol)
             : base(z, drawArea, drawColor, iconSize, null, textureSymbol)
         {
             this.displayOptions = false;
             this.options = options;
             this.drawArea = drawArea;
 
-            Point numberPoint = new Point(
-                this.drawPoint.X + this.drawArea.Width - (this.drawArea.Height * (this.options.Length / 10)), 
-                this.drawPoint.Y);
-            this.numberText = new Text(-1, fontName, this.drawArea.Height - 2, textColor, $"{this.options.Length}", numberPoint);
+            Point numberPoint = drawPoint;
+            numberPoint.Y -= this.drawArea.Height / 2 - 4;
+            this.numberText = new Text(-1, fontName, this.drawArea.Height - 4, textColor, $"{this.options.Length}", numberPoint);
 
             base.action = ToggleDisplayOptions;
             this.EditContainedOptions();
@@ -103,7 +102,7 @@ namespace Layered.DrawObject
         public override void Draw()
         {
             base.Draw();
-            this.numberText.Draw();
+            //this.numberText.Draw();
             if (displayOptions)
                 for (int i = 0; i < options.Length; i++)
                     options[i].Draw();
@@ -112,11 +111,11 @@ namespace Layered.DrawObject
 
         public new void Delete()
         {
+            base.Delete();
         }
 
         public bool ToggleDisplayOptions(bool onOff)
         {
-
             for (int i = 0; i < options.Length; i++)
                 this.options[i].enabled = onOff;
             return this.displayOptions = onOff;

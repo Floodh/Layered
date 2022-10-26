@@ -12,7 +12,14 @@ namespace Layered.DrawObject
     {
         public string textStr 
             {get {return this.textStr_org;} 
-            set {this.textStr_org = value; Visual.DeleteTexture(this.texture); Visual.LoadTextTexture(font, value, color); }}
+            set {
+                this.textStr_org = value; 
+                Visual.DeleteTexture(this.texture); 
+                this.texture = Visual.LoadTextTexture(font, value, color); 
+                Visual.TextureSize(this.font, value, out this.width, out this.height);
+                this.textureArea    = new Rectangle(Point.Empty, this.Size);
+                this.drawArea       = new Rectangle(drawPoint, this.Size);                
+            }}
         private string textStr_org;
 
         private Color color;
@@ -39,7 +46,7 @@ namespace Layered.DrawObject
 
         public Text(int z, string fontName, int ptSize, Color color, string text, Point drawPoint)
         {
-            this.textStr_org = text;
+            
             this.color = color;
 
             this.Z              = z;   
@@ -54,14 +61,19 @@ namespace Layered.DrawObject
                 this.font           = Visual.OpenFont(fontFolderPath + "\\" + fontName, ptSize);
                 fontDictionary.Add(fontFolderPath + "\\" + fontName, this.font);
             }
+
+            this.textStr_org = text;    //  this line is not needed
+            this.textStr = text;
+
+            this.drawPoint = drawPoint;
             
             
-            this.texture        = Visual.LoadTextTexture(font, text, color);
+            // this.texture        = Visual.LoadTextTexture(font, text, color);
 
-            Visual.TextureSize(this.font, text, out this.width, out this.height);
+            // Visual.TextureSize(this.font, text, out this.width, out this.height);
 
-            this.textureArea    = new Rectangle(Point.Empty, this.Size);
-            this.drawArea       = new Rectangle(drawPoint, this.Size);
+            // this.textureArea    = new Rectangle(Point.Empty, this.Size);
+            // this.drawArea       = new Rectangle(drawPoint, this.Size);
 
         }
         

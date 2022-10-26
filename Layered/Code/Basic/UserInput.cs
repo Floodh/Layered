@@ -47,7 +47,7 @@ namespace Layered.Basic
 
         private static void UpdateMouseDown(SDL.SDL_MouseButtonEvent click)
         {
-            Console.WriteLine($"Mouse {click.button}");
+            //Console.WriteLine($"Mouse {click.button}");
             Mouse.mousekey[click.button] = new Mouse.MouseKey(new Point(click.x, click.y), Mouse.mousekey[click.button].up, true);
         }
 

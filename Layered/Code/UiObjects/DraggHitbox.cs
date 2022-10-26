@@ -17,7 +17,7 @@ namespace Layered.UIObject{
 
         public              bool                        dragging    {get; private set;}
 
-        private readonly    Rectangle                   bounds;
+        public              Rectangle                   bounds;
         public              Point                       startPoint;
         public              Point                       dragPoint;
         public              Point                       endPoint;

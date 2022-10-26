@@ -96,7 +96,8 @@ namespace Layered.Internal{
 
         public static void DeleteTexture(IntPtr texture)
         {
-            SDL.SDL_DestroyTexture(texture);
+            if (texture != null)
+                SDL.SDL_DestroyTexture(texture);
         }
 
         public static Color AvgColorOfTexture(IntPtr texture)
