@@ -96,7 +96,7 @@ namespace Layered.Internal{
 
         public static void DeleteTexture(IntPtr texture)
         {
-            if (texture != null)
+            if (texture != IntPtr.Zero)
                 SDL.SDL_DestroyTexture(texture);
         }
 

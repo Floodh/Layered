@@ -61,20 +61,28 @@ namespace Layered.Basic{
 
         public static void Add(IDrawObject drawObject)
         {
+            if (drawObject.Z >= drawLayers.Length || drawObject.Z < 0)
+                throw new InvalidOperationException($"Z = {drawObject.Z} value exceds draw layer depth or is negative");
             drawLayers[drawObject.Z].Add(drawObject);
         }
         public static void Add(IUIObject uiObject)
         {
+            if (uiObject.Z >= uiLayers.Length)
+                throw new InvalidOperationException($"Z = {uiObject.Z} value exceds ui layer depth or is negative");
             uiLayers[uiObject.Z].Add(uiObject);
         }
 
 
         public static bool Remove(IDrawObject drawObject)
         {
+            if (drawObject.Z >= drawLayers.Length)
+                throw new InvalidOperationException($"Z = {drawObject.Z} value exceds draw layer depth or is negative");            
             return drawLayers[drawObject.Z].Remove(drawObject);
         }
         public static bool Remove(IUIObject uiObject)
         {
+            if (uiObject.Z >= uiLayers.Length)
+                throw new InvalidOperationException($"Z = {uiObject.Z} value exceds ui layer depth or is negative");            
             return uiLayers[uiObject.Z].Remove(uiObject);
         }
         

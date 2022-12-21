@@ -38,8 +38,8 @@ namespace Layered.DrawObject
             this.Z = z; 
             this.drawArea = drawArea;
             this.toggled = startAsToggled;
-            this.playTexture = new SimpleTexture(this.Z, drawArea, new Rectangle(Point.Empty, textureSize), playButtonTextureName);
-            this.pauseTexture = new SimpleTexture(this.Z, drawArea, new Rectangle(Point.Empty, textureSize), pauseButtonTextureName);
+            this.playTexture = new SimpleTexture(-1, drawArea, new Rectangle(Point.Empty, textureSize), playButtonTextureName);
+            this.pauseTexture = new SimpleTexture(-1, drawArea, new Rectangle(Point.Empty, textureSize), pauseButtonTextureName);
             this.button = new UIObject.ButtonPressable(z, drawArea);
             this.toggleAction = toggleAction;
             this.backgroundColor = backgroundColor;

@@ -10,7 +10,7 @@ namespace Layered.UIObject
         /// <summary>
         /// The Z value determines in which layer the UI object should check for input in LayeredLayout.
         /// If autoAssignUIObjects is set to true than the draw object will automatically be assigned
-        //  and unassigned to LayeredLayout if the Z value > -1
+        /// and unassigned to LayeredLayout if the Z value > -1
         /// </summary>
         public int Z {
             get {return z;}

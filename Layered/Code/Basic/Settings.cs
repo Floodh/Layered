@@ -15,6 +15,7 @@ namespace Layered.Basic   {
             get {return new Size(windowWidth, windowHeight);}
             set {windowWidth = value.Width; windowHeight = value.Height;}
         }
+        public static Rectangle windowRect { get {return new Rectangle(0, 0, windowWidth, windowHeight);}}
 
 
         public static int frameRate = 60;
@@ -47,18 +48,14 @@ namespace Layered.Basic   {
         public  const   string  resourcesFolderPath         =   "Layered\\Resources";
         public  const   string  defaultTextureFolderPath    =   resourcesFolderPath + "\\" + "Textures";
         public  const   string  fontFolderPath              =   resourcesFolderPath + "\\" + "Fonts";
-
         public  const   string  settingsFolderPath          =   "Layered\\Settings";
         public  const   string  controlsBindingsFilePath    =   settingsFolderPath + "\\" + "Controls.txt";
         //public  const   string  graphicFilePath             =   settingsFolderPath + "\\" + "Controls.txt";
 
 
-
         // //  UserInput
         // public const uint      mouse_buttons       = 3;
         // public const uint      keyboard_keys       = 10;
-
-
 
     }
 
