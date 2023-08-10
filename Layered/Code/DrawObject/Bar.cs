@@ -12,7 +12,7 @@ namespace Layered.DrawObject
         public Rectangle drawArea {get; private set;}
 
 
-        private const int maxFill = 100 * 100;
+        public const int maxFill = 100 * 100;
 
         private int currentFill;
         public int fillPercent  {get {return currentFill / 100;} set {currentFill = (value * 100) % maxFill;}}

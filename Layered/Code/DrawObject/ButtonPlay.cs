@@ -8,7 +8,7 @@ namespace Layered.DrawObject
 {
 
 
-    public class PlayButton : DrawObject
+    public class ButtonPlay : DrawObject
     {
 
         private static readonly Size textureSize = new Size(512,512);
@@ -28,12 +28,7 @@ namespace Layered.DrawObject
         public delegate void UserDefinedAction(bool toggled);
         private UserDefinedAction toggleAction;
 
-        //private UIObject.SimpleButton.userDefinedAction toggleAction;
-
-
-
-
-        public PlayButton(int z, Rectangle drawArea, Color backgroundColor, UserDefinedAction toggleAction, bool startAsToggled = false)
+        public ButtonPlay(int z, Rectangle drawArea, Color backgroundColor, UserDefinedAction toggleAction, bool startAsToggled = false)
         {
             this.Z = z; 
             this.drawArea = drawArea;
